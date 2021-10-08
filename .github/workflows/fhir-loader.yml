@@ -31,11 +31,12 @@ jobs:
         run: |
           pwd
           git clone https://github.com/hansenms/FhirLoader.git
+          ls -la 
           cd FhirLoader
           dotnet run -- \
               --client-secret ${{ Secrets.CLIENTSECRET}} \
               --client-id ${{Secrets.CLIENTID}} \
-              --input-folder ../output/fhir/ \
+              --input-folder ../synthea/output/fhir/ \
               --authority ${{ Secrets.AUTHORITY}} \
               --fhir-server-url ${{ Secrets.FHIRAZUREAPI}}    \
               --max-degree-of-parallelism 14
