@@ -35,3 +35,6 @@ jobs:
           cd synthea
           ./run_synthea -p 2
           ls -la output/fhir
+      - name: run synthea 
+        run: |
+          dotnet
