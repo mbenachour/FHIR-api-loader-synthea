@@ -34,3 +34,4 @@ jobs:
         run: |
           cd synthea
           ./run_synthea -p 2
+          ls -la
