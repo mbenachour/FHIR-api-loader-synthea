@@ -27,6 +27,15 @@ jobs:
       - uses: actions/setup-dotnet@v1
         with:
           dotnet-version: '3.1.x'
-      - name: run dotnet 
+      - name: load data 
         run: |
-          dotnet
+          git clone https://github.com/hansenms/FhirLoader.git
+          cd FhirLoader
+          dotnet run -- \
+              --client-secret ${{ Secrets.CLIENTSECRET}} \
+              --client-id ${{Secrets.CLIENTID}} \
+              --input-folder ./Synthea/output/fhir/ \
+              --authority ${{ Secrets.AUTORITY}} \
+              --fhir-server-url {{ Secrets.}}    \
+              --max-degree-of-parallelism 14
+      
