@@ -29,13 +29,14 @@ jobs:
           dotnet-version: '3.1.x'
       - name: load data 
         run: |
+          pwd
           git clone https://github.com/hansenms/FhirLoader.git
           cd FhirLoader
           dotnet run -- \
               --client-secret ${{ Secrets.CLIENTSECRET}} \
               --client-id ${{Secrets.CLIENTID}} \
-              --input-folder ./Synthea/output/fhir/ \
-              --authority ${{ Secrets.AUTORITY}} \
-              --fhir-server-url {{ Secrets.}}    \
+              --input-folder ../output/fhir/ \
+              --authority ${{ Secrets.AUTHORITY}} \
+              --fhir-server-url {{ Secrets.FHIRAZUREAPI}}    \
               --max-degree-of-parallelism 14
       
